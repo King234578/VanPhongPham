@@ -7,15 +7,17 @@ use App\Models\Cart;
 use App\Models\Product;
 
 //import admin
+use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
-use App\Http\Controllers\Admin\DanhMucController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\UploadController;
-use App\Http\Services\UploadService;
-use App\Models\DanhMuc;
-use App\Models\SanPham;
+use App\Http\Controllers\Admin\StatisticController;
+// use App\Http\Services\UploadService;
+// use App\Models\DanhMuc;
+// use App\Models\SanPham;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\NhaCungCapController;
+use App\Http\Controllers\Admin\BillController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,7 +63,7 @@ Route::post('admin/users/login/store', [LoginController::class  ,'store']);
 Route::middleware(['auth'])->group(function() {
 
     Route::prefix('admin')->group(function() {
-
+        Route::post('/', [StatisticController::class,'profitByDateRange']);
         Route::get('/', [MainController::class, 'index'])->name('admin');
         Route::get('main', [MainController::class, 'index']);
         //Menu
@@ -70,47 +72,32 @@ Route::middleware(['auth'])->group(function() {
                 Route::get('add', [MenuController::class, 'create']);
                 Route::post('add', [MenuController::class, 'store']);
                 Route::get('list', [MenuController::class, 'index']);
-                Route::get('edit/{MaSP}', [MenuController::class, 'show']);
-                Route::post('edit/{MaSP}', [MenuController::class, 'update']);
+                Route::get('edit/{id}', [MenuController::class, 'show']);
+                Route::post('edit/{id}', [MenuController::class, 'update']);
                 Route::delete('destroy', [MenuController::class, 'destroy']);
-                //danh mục
-                // Route::get('listdanhmuc', [DanhMucController::class, 'index2']);
-                // Route::get('editdanhmuc/{MaDanhMuc}', [DanhMucController::class, 'show2']);
-                // Route::post('editdanhmuc/{MaDanhMuc}', [DanhMucController::class, 'update2']);
-                // Route::get('adddanhmuc', [DanhMucController::class, 'create2']);
-                // Route::post('adddanhmuc', [DanhMucController::class, 'store2']);
-                // Route::delete('destroy', [DanhMucController::class, 'destroy2']);
-                // //nhà cung cấp
-                // Route::get('listnhacungcap', [NhaCungCapController::class, 'index3']);
-                // Route::get('editnhacungcap/{MaNCC}', [NhaCungCapController::class, 'show3']);
-                // Route::post('editnhacungcap/{MaNCC}', [NhaCungCapController::class, 'update3']);
-                // Route::get('addnhacungcap', [NhaCungCapController::class, 'create3']);
-                // Route::post('addnhacungcap', [NhaCungCapController::class, 'store3']);
-                // Route::delete('destroy', [NhaCungCapController::class, 'destroy3']);
+
         });
-        Route::prefix('danhmuc')->group(function() {
-            //danh mục
-            Route::get('listdanhmuc', [DanhMucController::class, 'index2']);
-            Route::get('editdanhmuc/{MaDanhMuc}', [DanhMucController::class, 'show2']);
-            Route::post('editdanhmuc/{MaDanhMuc}', [DanhMucController::class, 'update2']);
-            Route::get('adddanhmuc', [DanhMucController::class, 'create2']);
-            Route::post('adddanhmuc', [DanhMucController::class, 'store2']);
-            Route::delete('destroy', [DanhMucController::class, 'destroy2']);
-    });
-    Route::prefix('nhacungcap')->group(function() {
-        // //nhà cung cấp
-        Route::get('listnhacungcap', [NhaCungCapController::class, 'index3']);
-        Route::get('editnhacungcap/{MaNCC}', [NhaCungCapController::class, 'show3']);
-        Route::post('editnhacungcap/{MaNCC}', [NhaCungCapController::class, 'update3']);
-        Route::get('addnhacungcap', [NhaCungCapController::class, 'create3']);
-        Route::post('addnhacungcap', [NhaCungCapController::class, 'store3']);
-        Route::delete('destroy', [NhaCungCapController::class, 'destroy3']);
-});
+        //customer
+        Route::prefix('customer')->group(function (){
+            Route::get('list',[CustomerController::class, 'index']);
+            Route::get('add', [CustomerController::class, 'create']);
+            Route::post('add', [CustomerController::class, 'store']);
+        });
+         //bill
+         Route::prefix('bill')->group(function (){
+            Route::get('list',[BillController::class, 'index']);
+        });
         //Product
         Route::prefix('products')->group(function (){
                 Route::get('add',[ProductController::class, 'create']);
         });
         #Upload
-        Route::post('upload/services',[UploadController::class, 'store']);
+
     });
 });
+// //upload ảnh
+// Route::get('uploadFile',function(){
+//     return view('postFile');
+// });
+// Route::post('postFile',[MenuController::class, 'postFile'])->name('postFile');
+

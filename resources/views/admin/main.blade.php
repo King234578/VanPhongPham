@@ -86,7 +86,7 @@
     <div class="float-right d-none d-sm-block">
       <b>By</b> Nguyễn Quốc Vương
     </div>
-    <strong>Copyright &copy; 2014-2022 <a href="https://adminlte.io">Admin</a>.</strong>
+    <strong> &copy; 2014-2022 <a href="https://adminlte.io">Admin</a>.</strong>
   </footer>
 
   <!-- Control Sidebar -->

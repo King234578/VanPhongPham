@@ -11,7 +11,11 @@ class Bill extends Model
     protected $table = "bills";
     protected $fillable = [
         'id',
-
+        'id_customer',
+        'date_order',
+        'total',
+        'payment',
+        'note'
 
     ];
     public function bill_detail(){

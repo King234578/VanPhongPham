@@ -1,25 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use Illuminate\Support\Facades\DB;
+
 use App\Http\Controllers\Controller;
+use App\Http\Services\Menu\BillServices;
 use Illuminate\Http\Request;
-// use Illuminate\Http\Menu;
-// use App\Models\Menu;
-use App\Http\Requests\Menu\CreateFormRequest;
-use App\Http\Services\Menu\MenuServices;
-use App\Models\SanPham;
-use Hamcrest\Core\Set;
-use App\Http\Services\Menu\DanhMucServices;
-use App\Models\Product;
 
-class MenuController extends Controller
+class BillController extends Controller
 {
-
-    protected $menuServices;
-    protected $danhmucsanpham;
-    public function __construct(MenuServices $menuServices){
-        $this->menuServices = $menuServices;
+    protected $BillServices;
+    // protected $danhmucsanpham;
+    public function __construct(BillServices $BillServices){
+        $this->BillServices = $BillServices;
         // $this->danhmucsanpham= $danhmucsanpham;
 
     }
@@ -38,9 +30,9 @@ class MenuController extends Controller
 
     public function index()
     {
-        return view('admin.menu.list', [
+        return view('admin.menu.listb', [
             'title' => 'Danh sách danh mục mới nhất',
-            'menu' => $this->menuServices->getAll(),
+            'menu' => $this->BillServices->getAll(),
 
         ]);
     }
@@ -70,5 +62,4 @@ class MenuController extends Controller
         $this->menuServices->update($request, $id);
         return redirect('/admin/menu/list');
     }
-
 }

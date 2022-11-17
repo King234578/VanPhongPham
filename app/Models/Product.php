@@ -16,4 +16,13 @@ class Product extends Model
     public function bill_detail(){
         return $this->hasMany('app\BillDetail','id_product','id');
     }
+    protected $fillable = [
+        'id',
+        'name',
+        'description',
+        'unit_price',
+        'promotion_price',
+        'image',
+        'new'
+    ];
 }

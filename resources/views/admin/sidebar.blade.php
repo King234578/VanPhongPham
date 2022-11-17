@@ -56,33 +56,16 @@
                   <p>Thêm sản phẩm</p>
                 </a>
               </li>
-
-
               <li class="nav-item">
-                <a href="/admin/menu/adddanhmuc" class="nav-link">
+                <a href="/admin/customer/add" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Thêm danh mục</p>
+                  <p>Thêm khách hàng</p>
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a href="/admin/menu/addnhacungcap" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Thêm Nhà cung cấp</p>
-                </a>
+
               </li>
-              <li class="nav-item">
-                <a href="/admin/nhacungcap/addnhacungcap" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Thêm Người dùng</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/admin/nhacungcap/addnhacungcap" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Thêm Hóa đơn</p>
-                </a>
-              </li>
+
             </ul>
           </li>
 
@@ -103,30 +86,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/danhmuc/listdanhmuc" class="nav-link">
+                    <a href="/admin/customer/list" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Danh sách danh mục</p>
+                    <p>Danh sách khách hàng</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/nhacungcap/listnhacungcap" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Danh sách nhà cung cấp</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/admin/danhmuc/listdanhmuc" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Danh sách người dùng</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/admin/danhmuc/listdanhmuc" class="nav-link">
+                    <a href="/admin/bill/list" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Danh sách hóa đơn</p>
                     </a>
                 </li>
-
             </ul>
           </li>
 
